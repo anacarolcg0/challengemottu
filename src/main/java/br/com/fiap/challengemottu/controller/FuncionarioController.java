@@ -83,7 +83,7 @@ public class FuncionarioController {
     })
     @PutMapping("/{id}")
     public ResponseEntity<FuncionarioResponse> updateFuncionario(@PathVariable Long id,
-                                                                 @RequestBody FuncionarioRequest funcionarioRequest) {
+                                                                 @Valid @RequestBody FuncionarioRequest funcionarioRequest) {
         FuncionarioResponse funcionario = funcionarioService.update(funcionarioRequest, id);
         if (funcionario == null) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
